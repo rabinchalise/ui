@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui/pricing_model.dart';
 
 class UiScreen extends StatefulWidget {
   const UiScreen({super.key});
@@ -11,60 +12,60 @@ class _UiScreenState extends State<UiScreen> {
   int toogleBtnIndex = 0;
   int tableIndex = 0;
 
-  Map<String, List> pricing = {
-    'title': ['Standard', 'Upgraded', 'Premium', 'Enterprise'],
-    'price': ['49.99', '79', '150', 'assets/icons8-dashboard-layout-48.png'],
-    'values': [
-      [
-        '1',
-        'Yes',
-        'No',
-        'No',
-        'No',
-        'No',
-        'No',
-        'No',
-        'No',
-        'No',
-      ],
-      [
-        'Unlimited Users',
-        'Yes',
-        'Yes',
-        'Yes',
-        'Yes',
-        'Yes',
-        'No',
-        'No',
-        'No',
-        'No'
-      ],
-      [
-        'Unlimited Users',
-        'Yes',
-        'Yes',
-        'Yes',
-        'Yes',
-        'Yes',
-        'Yes',
-        'Yes',
-        'Yes',
-        'No'
-      ],
-      [
-        'Unlimited Users',
-        'Yes',
-        'Yes',
-        'Yes',
-        'Yes',
-        'Yes',
-        'Yes',
-        'Yes',
-        'Yes',
-        'Yes'
-      ]
-    ]
-  };
+  // Map<String, List> pricing = {
+  //   'title': ['Standard', 'Upgraded', 'Premium', 'Enterprise'],
+  //   'price': ['49.99', '79', '150', 'assets/icons8-dashboard-layout-48.png'],
+  //   'values': [
+  //     [
+  //       '1',
+  //       'Yes',
+  //       'No',
+  //       'No',
+  //       'No',
+  //       'No',
+  //       'No',
+  //       'No',
+  //       'No',
+  //       'No',
+  //     ],
+  //     [
+  //       'Unlimited Users',
+  //       'Yes',
+  //       'Yes',
+  //       'Yes',
+  //       'Yes',
+  //       'Yes',
+  //       'No',
+  //       'No',
+  //       'No',
+  //       'No'
+  //     ],
+  //     [
+  //       'Unlimited Users',
+  //       'Yes',
+  //       'Yes',
+  //       'Yes',
+  //       'Yes',
+  //       'Yes',
+  //       'Yes',
+  //       'Yes',
+  //       'Yes',
+  //       'No'
+  //     ],
+  //     [
+  //       'Unlimited Users',
+  //       'Yes',
+  //       'Yes',
+  //       'Yes',
+  //       'Yes',
+  //       'Yes',
+  //       'Yes',
+  //       'Yes',
+  //       'Yes',
+  //       'Yes'
+  //     ]
+  //   ]
+  // };
 
   List<String> tableTitle = [
     'No of Users',
@@ -153,10 +154,10 @@ class _UiScreenState extends State<UiScreen> {
                         ],
                       ),
                     ),
-                    ...List.generate(pricing['title']!.length, (index) {
-                      final title = pricing['title']![index].toString();
-                      final price = pricing['price']![index].toString();
-                      final values = pricing['values']![index];
+                    ...List.generate(pricing.length, (index) {
+                      final title = pricing[index].title;
+                      final price = pricing[index].price;
+                      final values = pricing[index].values;
                       return Expanded(
                         child: GestureDetector(
                             onTap: () {
